@@ -1,0 +1,2 @@
+RANDOM_DELAY=60
+1   1	acmetool	/usr/local/bin/acmetool --xlog.file=/var/log/acmetool_reconcile.log --xlog.fileseverity=debug --batch reconcile > /dev/null 2> /dev/null

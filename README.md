@@ -4,7 +4,7 @@ Uses [anacron](http://anacron.sourceforge.net/) to run [acmetool](https://github
 
 ## Instructions:
 
-### Build container:
+### Build image:
 
 ```
 $ docker build .
@@ -25,8 +25,8 @@ $ mkdir -p $ACME_STATE_DIR/anacron
 ### Initialize acmetool:
 
 ```
-$ acmetool quickstart
-$ acmetool want mydomain.example.com --no-reconcile
+$ ./acmetool quickstart
+$ ./acmetool want mydomain.example.com --no-reconcile
 ```
 
 *Note:* Do not create hooks or cronjobs. Select 'Stateless' challenge mode at this stage, even if you are going to use some other method.

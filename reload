@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if test -r /etc/acme_reload
+then
+    . /etc/acme_reload
+fi
+
 HOOK_HOST="${HOOK_HOST:-front}"
 HOOK_PORT="${HOOK_PORT:-80}"
 HOOK_PATH="${HOOK_PATH:-reload}"

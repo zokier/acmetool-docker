@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ACMETOOL_LOG="/var/log/acmetool_reconcile.log"
+env | grep ^HOOK > /etc/acme_reload
 
 while true
 do

@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 RUN apt-get update \
-    && apt-get --no-install-recommends -y install anacron \
+    && apt-get --no-install-recommends -y install anacron netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
 # anacron wants to send email, but we dont care

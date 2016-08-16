@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+    front:
+        build: ./front
+        ports:
+            - "80:80"
+            - "443:443"
+        expose:
+            - "9080"
+        volumes:
+            - ./acme:/var/lib/acme
+    acme:
+        build: .
+        volumes:
+            - ./acme:/var/lib/acme
+        env_file:
+            acmetool.env

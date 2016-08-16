@@ -1,0 +1,19 @@
+#!/bin/sh
+
+HOOK_HOST="${HOOK_HOST:-front}"
+HOOK_PORT="${HOOK_PORT:-80}"
+HOOK_PATH="${HOOK_PATH:-reload}"
+HOOK_USER="${HOOK_USER:-acmetool}"
+HOOK_PASSWD="${HOOK_PASSWD:-password}"
+
+HOOK_AUTH=$(printf '%s:%s' "$HOOK_USER" "$HOOK_PASSWD" | base64)
+
+nc -q1 -C "$HOOK_HOST" "$HOOK_PORT" << EOF
+GET /$HOOK_PATH HTTP/1.1
+Host: $HOOK_HOST:$HOOK_PORT
+Authorization: Basic $HOOK_AUTH
+User-Agent: acmetool-hook/1.0
+Accept: */*
+Accept-Encoding: identity
+
+EOF
